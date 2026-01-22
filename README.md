@@ -2,7 +2,9 @@
 
 This is a base project for CS4530, Software Engineering at Northeastern.
 
-## ESLint configuration
+## Base configuration
+
+### ESLint configuration
 
 This base project has an opinionated eslint configuration that heavily relies
 on typescript-eslint.
@@ -17,13 +19,13 @@ on typescript-eslint.
   our config files.)
 - Everything except for `no-console` and `prettier` is registered as `error`.
 
-## Prettier
+### Prettier
 
 Includes a `.prettierrc` file with some reasonable settings and a
 `.vscode/settings.json` file that sets javascript, typescript, and json files
 to use the prettier editor as the default.
 
-## LF file endings
+### LF file endings
 
 The `.prettierrc`, `.gitattributes`, and `.vscode/settings.json` files
 conspire to generally force projects to use `\n` file endings instead of
