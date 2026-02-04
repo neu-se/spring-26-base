@@ -23,19 +23,12 @@ test("coinFlip should call Math.random", () => {
   expect(spyRandom).toHaveBeenCalledTimes(1);
 });
 
-test("coinFlip notices Math.random’s output", () => {
+test("coinFlip notices Math.random's output", () => {
   const spyRandom = vi.spyOn(Math, "random");
   spyRandom.mockImplementationOnce(() => 0.9);
   expect(coinFlip()).toBe(true);
   spyRandom.mockImplementationOnce(() => 0.1);
   expect(coinFlip()).toBe(false);
-});
-
-test("a simple mock", () => {
-  const myMock = vi.fn();
-  expect(myMock(104)).toBeUndefined();
-  expect(myMock("Hello", "you")).toBeUndefined();
-  expect(myMock.mock.calls).toEqual([[104], ["Hello", "you"]]);
 });
 
 test("a simple mock", () => {
