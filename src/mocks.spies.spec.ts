@@ -12,6 +12,7 @@ test("addStudent should add a student to the database", () => {
   expect(db.nameToIDs("blair")).toEqual([id1]);
 });
 
+/** Returns true half the time, otherwise false */
 function coinFlip() {
   return Math.random() >= 0.5;
 }
@@ -31,6 +32,19 @@ test("coinFlip notices Math.random's output", () => {
   expect(coinFlip()).toBe(false);
 });
 
+/**
+ * @param randomSource - randomness source
+ * @returns true if randomSource returns >= 0.5
+ */
+function coinFlip2(randomSource: () => number) {
+  return randomSource() >= 0.5;
+}
+
+test("coinFlip2 uses the randomness source", () => {
+  expect(coinFlip2(() => 0.9)).toBe(true);
+  expect(coinFlip2(() => 0.1)).toBe(false);
+});
+
 test("a simple mock", () => {
   const myMock = vi.fn();
   expect(myMock(104)).toBeUndefined();
@@ -38,6 +52,7 @@ test("a simple mock", () => {
   expect(myMock.mock.calls).toEqual([[104], ["Hello", "you"]]);
 });
 
+/** Greets the person whose name is passed via console.log */
 function sayHello(name: string) {
   console.log(`Hello, ${name}`);
 }
@@ -46,5 +61,10 @@ test("sayHello prints a greeting", () => {
   const spyLog = vi.spyOn(console, "log");
   spyLog.mockImplementation(() => {});
   sayHello("CS4530");
+
+  // One way of checking the input
   expect(spyLog.mock.calls).toEqual([["Hello, CS4530"]]);
+
+  // Equivalent check in this case
+  expect(spyLog).toHaveBeenCalledExactlyOnceWith(`Hello, CS4530`);
 });
