@@ -2,12 +2,22 @@
 
 This is a template project for CS4530, Software Engineering at Northeastern.
 
-## Base configuration
+## Express Configuration
 
-The functional content of this project is a minimal "transcript service" that
-registers students by assigning them an ID and then lets course grades be
-added and queried. Everything in the `./src` directory can be deleted to
-create a true empty project.
+The functional content of this project is a minimal Express transcript API for
+a very simple transcript server.
+
+### Express API
+
+The Express server's API has the following endpoints:
+
+| Endpoint             | Method | Description                         |
+| -------------------- | ------ | ----------------------------------- |
+| `/api/addStudent`    | POST   | Add a new student                   |
+| `/api/addGrade`      | POST   | Add a grade for an existing student |
+| `/api/getTranscript` | POST   | Look up information for a student   |
+
+## Base configuration
 
 The base project configuration follows a philosophy of "minimalism, mostly."
 Project configuration should be minimal and have a bias towards implicit
@@ -46,9 +56,6 @@ support:
 - `npm run prettier` checks formatting, and `npm run prettier:fix` writes
   formatted files back to disk
 - `npm run test` runs Vitest tests and reports coverage
-
-When appropriate, projects should also have the following scripts:
-
 - `npm run dev` starts a development server or watch process
 - `npm run build` prepares the project for production-style deployment
 - `npm start` runs the project in production style
