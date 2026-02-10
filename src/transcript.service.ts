@@ -69,4 +69,19 @@ export class TranscriptDB {
     const index = this._getIndexForId(id);
     this._transcripts[index].grades.push({ course: courseName, grade: courseGrade });
   }
+
+  /**
+   * Finds all the IDs matching a given student name
+   * @param name
+   * @returns A list of IDs where the student has that name
+   */
+  nameToIDs(name: string) {
+    const result: StudentID[] = [];
+    for (const { student } of this._transcripts) {
+      if (student.studentName === name) {
+        result.push(student.studentID);
+      }
+    }
+    return result;
+  }
 }
