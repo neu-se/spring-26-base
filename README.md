@@ -76,9 +76,9 @@ The ESLint configuration makes some assumptions about project structure:
     line or file specific rules: we want to discourage excessive `no-console`
     use but it is more like the admonition to not check in commented-out code:
     it's mostly a problem when done excessively and it's easy to check in
-    visual inspection
+    visual inspection.
   - `prettier` is `warn` because red squigglies for `prettier` are especially
-    distracting and we can check for prettier failures in CI separately
+    distracting and we can check for prettier failures in CI separately.
   - We do not override the default setting of `warn` for
     `react-hooks/exhaustive-deps` in the default configuration. This rule
     makes the (horrible) suggestion to remove the dependency array, and people
